@@ -1,0 +1,74 @@
+body, nav, main, ul, li, a, h1, h2, h3, h4, h5{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: #a5026986;
+}
+#nav-area{
+    height: 40px;
+}
+#title-area{
+    display: inline-block; 
+}
+.center{
+    width: 1130px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+#setting-area{
+    float: right;
+}
+.vertical-default{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#left-area{
+    position: relative;
+    width: 500px;
+}
+#right-area{
+    position: relative;
+    width: 630px;
+}
+#percent-area{
+    margin: 20px 0 0 0;
+    width: 450px;
+    height: 100px;
+    border: 1px solid #000;
+}
+#percent-inner-area{
+    margin: 20px;
+    width: 410px;
+    height: 60px;
+}
+#percent-input-area{
+    position: relative;
+}
+#percent-form{
+    display: inline-block;
+    width: 370px;
+    height: 30px;
+}
+#percent-input{
+    padding: 0;
+    width: 366px;
+    height: 26px;
+}
+#percent-save-btn{
+    position: relative;
+    top: 8px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+}
+#cost-area{
+    margin: 20px 0 0 0;
+    width: 450px;
+    height: 200px;
+    border: 1px solid #000;
+}
+#footer-area{
+    height: 40px;
+}
