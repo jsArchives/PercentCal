@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" type = "text/css" href="style/default.css">
+    <link rel= "stylesheet" type = "text/css" href="style/default.css">
+    <link rel="stylesheet" type="text/css" href="style/white.css">
     <title>기대횟수계산기</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
     </nav>
     <main id="main-white">
         <!-- main -->
-        <div class="center">
+        <div class="center" id="main-center">
             <!-- center align -->
             <div id="left-area">
                 <!-- leftdiv -->
@@ -31,26 +32,91 @@
                     <div id="percent-inner-area">
                         <div>
                             <!-- percent title -->
-                            <span>확률</span>
+                            <h3><span>확률</span></h3>
                         </div>
                         <div id="precent-input-area">
                             <form id="percent-form">
                                 <input type="text" id="percent-input">
                             </form>
                             <button id="percent-save-btn">
-                                <!-- saved -->
+                                <!-- percent saved -->
                             </button>
                         </div>
                     </div>
                 </div>
                 <div id="cost-area">
                     <!-- cost -->
+                    <div id="cost-inner-area">
+                        <div>
+                            <!-- cost title -->
+                            <h3><span>비용</span></h3>
+                            <button id="cost-set-btn">
+                                <!-- cost setting -->
+                            </button>
+                        </div>
+                        <div id="cost-input-area">
+                            <div id="cost-name">
+                                <span>이름</span>
+                                <button id="name-update">
+                                    <!-- name-update -->
+                                </button>
+                            </div>
+                            <div id="cost-value">
+                                <form id="cost-form">
+                                    <input type="text" id="cost-input">
+                                </form>
+                            </div>
+                            <div id="cost-btn-area">
+                                <button id="cost-save-btn">
+                                    <!-- cost saved -->
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="right-area">
                 <!-- rightdiv -->
-                <div>
+                <div id="result-area">
                     <!-- result -->
+                    <div id="result-inner-area">
+                        <div id="result-name">
+                            <h3><span>결과</span></h3>
+                        </div>
+                        <div id="result-box">
+                            <div id="result-percent">
+                                <span>확률</span>
+                                <span>n%</span>
+                            </div>
+                            <div id="result-cost">
+                                <span>비용</span>
+                                <span>$name n개</span>
+                            </div>
+                            <div id="result-num-of-trials">
+                                <span>기대횟수</span>
+                                <span>n회</span>
+                            </div>
+                        </div>
+                        <div id="result-adjust-area">
+                            <div id="adjust">
+                                <span>확률</span>
+                                <form>
+                                    <input type="range" max=99 min=1>
+                                    <span>n%</span>
+                                </form>
+                            </div>
+                            <div id="adjust-result">
+                                <div id="adjust-cost">
+                                    <span>비용</span>
+                                    <span>$name n개</span>
+                                </div>
+                                <div id="adjust-num-of-trials">
+                                    <span>기대횟수</span>
+                                    <span>n회</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
