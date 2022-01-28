@@ -24,11 +24,18 @@ main{
     border-top: 1px solid #000;
 }
 #main-center{
-    display: flex;
     padding: 0 30px 30px 30px;
 }
 #setting-area{
     float: right;
+}
+#setting{
+    vertical-align: top;
+    margin: 0;
+    border: 2px solid #505050;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
 }
 .vertical-default{
     position: relative;
@@ -38,12 +45,12 @@ main{
 #left-area{
     display: inline-block;
     vertical-align: top;
-    width: 500px;
+    width: 550px;
 }
 #right-area{
     display: inline-block;
     vertical-align: top;
-    width: 500px;
+    width: 550px;
 }
 #percent-area{
     margin: 20px 0 0 0;
@@ -88,23 +95,28 @@ main{
     width: 20px;
     height: 20px;
 }
-#cost-input-area{
+.cost-input-area{
     position: relative;
 }
-#name-update{
+.name-update{
     float: right;
     width: 20px;
     height: 20px;
 }
-#cost-form{
+.cost-form{
     display: inline-block;
     width: 370px;
     height: 30px;
 }
-#cost-input{
+.cost-input{
     padding: 0;
     width: 200px;
     height: 26px;
+}
+.cost-delete{
+    float: right;
+    width: 20px;
+    height: 20px;
 }
 #cost-btn-area{
     height: 30px;
@@ -116,6 +128,7 @@ main{
     height: 30px;
 }
 #result-area{
+    float: right;
     border: 1px solid #000;
     margin : 20px 0 0 0;
     width: 500px;

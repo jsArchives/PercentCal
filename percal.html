@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel= "stylesheet" type = "text/css" href="style/default.css">
-    <link rel="stylesheet" type="text/css" href="style/white.css">
+    <link rel="stylesheet" type="text/css" href="style/mods.css">
     <title>기대횟수계산기</title>
 </head>
 <body>
@@ -17,17 +17,17 @@
                 <h1 id="title"><a>Calculator</a></h1>
             </div>
             <div id=setting-area class="vertical-default">
-                <h3 id="setting"><a>setting</a></h3>
+                <a href="" id="darkmode"><h3 id="setting" class="white"></h3></a>
             </div>
         </div>
     </nav>
-    <main id="main-white">
+    <main id="main-mods" class="white-main">
         <!-- main -->
         <div class="center" id="main-center">
             <!-- center align -->
             <div id="left-area">
                 <!-- leftdiv -->
-                <div id="percent-area">
+                <div id="percent-area" class="white">
                     <!-- percent -->
                     <div id="percent-inner-area">
                         <div>
@@ -36,15 +36,15 @@
                         </div>
                         <div id="precent-input-area">
                             <form id="percent-form">
-                                <input type="text" id="percent-input">
+                                <input type="number" id="percent-input">
                             </form>
-                            <button id="percent-save-btn">
+                            <!-- <button id="percent-save-btn"> -->
                                 <!-- percent saved -->
-                            </button>
+                            <!-- </button> -->
                         </div>
                     </div>
                 </div>
-                <div id="cost-area">
+                <div id="cost-area" class="white">
                     <!-- cost -->
                     <div id="cost-inner-area">
                         <div>
@@ -55,15 +55,15 @@
                             </button>
                         </div>
                         <div id="cost-input-area">
-                            <div id="cost-name">
+                            <div class="cost-name">
                                 <span>이름</span>
-                                <button id="name-update">
+                                <button class="name-update" id = "name-update-btn">
                                     <!-- name-update -->
                                 </button>
                             </div>
-                            <div id="cost-value">
-                                <form id="cost-form">
-                                    <input type="text" id="cost-input">
+                            <div class="cost-value">
+                                <form class="cost-form">
+                                    <input type="number" class="cost-input">
                                 </form>
                             </div>
                             <div id="cost-btn-area">
@@ -77,7 +77,7 @@
             </div>
             <div id="right-area">
                 <!-- rightdiv -->
-                <div id="result-area">
+                <div id="result-area" class="white">
                     <!-- result -->
                     <div id="result-inner-area">
                         <div id="result-name">
@@ -132,11 +132,11 @@
     </footer>
     <script src = ""></script>
     <!-- savingsetting -->
-    <script src = ""></script>
+    <script src = "js/costSet.js"></script>
     <!-- costsetting -->
     <script src = ""></script>
     <!-- calcul -->
-    <script src = ""></script>
+    <script src = "js/mods.js"></script>
     <!-- darkmode -->
 </body>
 </html>
