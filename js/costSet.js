@@ -4,16 +4,34 @@ let clickNumber = 0;
 let save = [];
 
 function loadLocal(){
+    
     const clicked = localStorage.getItem("clickNumber")
     if (clicked){
         clickNumber = localStorage.getItem("clickNumber");
     }
     const saved = localStorage.getItem("saved")
-    if (saved){
+    if (saved !== "" && saved !== null){
         const parseSave = JSON.parse(saved);
-        parseSave.forEach(creatCost);
+        parseSave.forEach((item) => {
+            if(item.mainId !== 100000001)
+                creatCost(item);
+        });
         parseSave.forEach((item) => save.push(item));
+        const updateDefault = document.getElementById("100000001");
+        const div = updateDefault.querySelector(".cost-name");
+        const span = div.querySelector("span");
+        console.dir(span);
+        console.log(save[0].name);
+        span.innerText = save[0].name;
+    }else{
+        const pushList = {
+            mainId: 100000001,
+            subId: 100000000,
+            name: "이름"
+        };
+        save.push(pushList);
     }
+    localStorage.setItem("saved", JSON.stringify(save));
     SaveBtnReflesh();
 }
 function addCost(event){
@@ -77,11 +95,18 @@ function creatCost(list) {
 function nameUpdate(event){
     const parent = event.target.parentElement;
     const span = parent.querySelector("span");
-    let name = "";
-    while(name === "" || name === null){
-        name = prompt("Write name", span.innerText);
+    const area = event.target.parentElement.parentElement;
+
+    let changeName = "";
+    const indexNum = save.findIndex((item) => item.mainId === parseInt(area.id));
+    while(changeName === "" || changeName === null){
+        changeName = prompt("Write name", span.innerText);
     }
-    span.innerText = name;
+    span.innerText = changeName;
+    if(indexNum !== -1){
+        save[indexNum].name = changeName;
+    }
+    localStorage.setItem("saved", JSON.stringify(save));
 }
 function nameDelete(event){
     targetDiv = event.target.parentElement.parentElement;
