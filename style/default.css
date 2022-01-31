@@ -121,7 +121,7 @@ main{
 #cost-btn-area{
     height: 30px;
 }
-#cost-save-btn{
+.cost-save-btn{
     float: right;
     vertical-align: top;
     width: 30px;

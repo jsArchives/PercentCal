@@ -20,17 +20,22 @@ function loadLocal(){
         const updateDefault = document.getElementById("100000001");
         const div = updateDefault.querySelector(".cost-name");
         const span = div.querySelector("span");
-        console.dir(span);
-        console.log(save[0].name);
         span.innerText = save[0].name;
     }else{
         const pushList = {
             mainId: 100000001,
             subId: 100000000,
-            name: "이름"
+            name: "이름",
+            value: 0
         };
         save.push(pushList);
     }
+
+    const defaultCostForm = document.getElementById("100000000");
+    const defaultCostInput = defaultCostForm.querySelector("input");
+    defaultCostInput.value = save[0].value;
+    defaultCostInput.addEventListener("change", costValueChange);
+    defaultCostInput.setAttribute("onclick", "this.select()");
     localStorage.setItem("saved", JSON.stringify(save));
     SaveBtnReflesh();
 }
@@ -47,7 +52,8 @@ function addCost(event){
     const pushList = {
         mainId: MAINID,
         subId: SUBID,
-        name: costName
+        name: costName,
+        value: 0
     };
     save.push(pushList);
     creatCost(pushList);
@@ -78,9 +84,13 @@ function creatCost(list) {
     const valueForm = document.createElement("form");
     valueForm.className = "cost-form";
     valueForm.id = listSubID;
+    valueForm.action = "#";
     const valueInput = document.createElement("input");
     valueInput.className = "cost-input";
     valueInput.type = "number";
+    valueInput.value = 0;
+    valueInput.setAttribute("onclick", "this.select()");
+    valueInput.addEventListener("change", costValueChange);
 
     nameDiv.appendChild(nameSpan);
     nameDiv.appendChild(nameUpdateBtn);
@@ -91,7 +101,21 @@ function creatCost(list) {
     fullArea.appendChild(valueDiv);
     parentArea.appendChild(fullArea);
 }
+function costValueChange(event){
+    const parent = event.target.parentElement;
+    const target = parent.querySelector("input");
+    const value = event.target.value;
 
+    if(value < 0){
+        target.value = 0;
+        alert("don't write negative number");
+    }
+    const indexNum = save.findIndex((item) => item.subId === parseInt(parent.id));
+    if(indexNum !== -1){
+        save[indexNum].value = target.value;
+    }
+    localStorage.setItem("saved", JSON.stringify(save));
+}
 function nameUpdate(event){
     const parent = event.target.parentElement;
     const span = parent.querySelector("span");
@@ -121,7 +145,8 @@ function SaveBtnReflesh(){
     const newBtnArea = document.createElement("div");
     newBtnArea.id = "cost-btn-area";
     const newBtn = document.createElement("button");
-    newBtn.id="cost-save-btn";
+    newBtn.id="calcul-btn";
+    newBtn.className="cost-save-btn";
     newBtnArea.appendChild(newBtn);
     area.appendChild(newBtnArea);
 }
