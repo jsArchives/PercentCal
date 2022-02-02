@@ -13,7 +13,7 @@ function loadLocal(){
     if (saved !== "" && saved !== null){
         const parseSave = JSON.parse(saved);
         parseSave.forEach((item) => {
-            if(item.mainId !== 100000001)
+            if(item.mainId !== "100000001")
                 creatCost(item);
         });
         parseSave.forEach((item) => save.push(item));
@@ -23,8 +23,8 @@ function loadLocal(){
         span.innerText = save[0].name;
     }else{
         const pushList = {
-            mainId: 100000001,
-            subId: 100000000,
+            mainId: "100000001",
+            subId: "100000000",
             name: "이름",
             value: 0
         };
@@ -47,7 +47,7 @@ function addCost(event){
     if(costName === "" || costName === null){
         costName = clickNumber;
     }
-    const MAINID = Date.now();
+    const MAINID = `${Date.now()}`;
     const SUBID = `${MAINID}${clickNumber}`;
     const pushList = {
         mainId: MAINID,
@@ -65,6 +65,7 @@ function creatCost(list) {
     listMainID = list.mainId;
     listSubID = list.subId;
     listCostName = list.name;
+    listValue = list.value;
     const parentArea = document.querySelector("#cost-input-area");
     const fullArea = document.createElement("div");
     fullArea.id = listMainID;
@@ -84,11 +85,11 @@ function creatCost(list) {
     const valueForm = document.createElement("form");
     valueForm.className = "cost-form";
     valueForm.id = listSubID;
-    valueForm.action = "#";
+    valueForm.setAttribute("action", "#");
     const valueInput = document.createElement("input");
     valueInput.className = "cost-input";
     valueInput.type = "number";
-    valueInput.value = 0;
+    valueInput.value = listValue;
     valueInput.setAttribute("onclick", "this.select()");
     valueInput.addEventListener("change", costValueChange);
 
@@ -110,7 +111,8 @@ function costValueChange(event){
         target.value = 0;
         alert("don't write negative number");
     }
-    const indexNum = save.findIndex((item) => item.subId === parseInt(parent.id));
+    const indexNum = save.findIndex((item) =>item.subId === parent.id);
+
     if(indexNum !== -1){
         save[indexNum].value = target.value;
     }
@@ -122,7 +124,7 @@ function nameUpdate(event){
     const area = event.target.parentElement.parentElement;
 
     let changeName = "";
-    const indexNum = save.findIndex((item) => item.mainId === parseInt(area.id));
+    const indexNum = save.findIndex((item) => item.mainId === area.id);
     while(changeName === "" || changeName === null){
         changeName = prompt("Write name", span.innerText);
     }
@@ -149,8 +151,19 @@ function SaveBtnReflesh(){
     newBtn.className="cost-save-btn";
     newBtnArea.appendChild(newBtn);
     area.appendChild(newBtnArea);
+    newBtn.addEventListener("click", calcul);
+}
+function percentValueChange(event){
+    const value = event.target.value;
+    if(value <= 0 || value >= 100){
+        event.target.value = 0;
+        alert("0초과 100미만 수 입력");
+    }
 }
 
+const percentInput = document.getElementById("percent-input");
+
+percentInput.addEventListener("change", percentValueChange);
 loadLocal()
 setNameBtn.addEventListener("click", nameUpdate);
 setBtn.addEventListener("click", addCost);
