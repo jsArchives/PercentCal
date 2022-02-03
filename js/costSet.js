@@ -76,9 +76,11 @@ function creatCost(list) {
     nameSpan.innerText = listCostName;
     const nameUpdateBtn = document.createElement("button");
     nameUpdateBtn.className = "name-update"
+    nameUpdateBtn.innerText = "Edit"
     nameUpdateBtn.addEventListener("click", nameUpdate);
     const nameDeleteBtn = document.createElement("button");
     nameDeleteBtn.className = "cost-delete"
+    nameDeleteBtn.innerText = "❌";
     nameDeleteBtn.addEventListener("click", nameDelete);
     const valueDiv = document.createElement("div");
     valueDiv.className = "cost-value";
@@ -136,7 +138,7 @@ function nameUpdate(event){
 }
 function nameDelete(event){
     targetDiv = event.target.parentElement.parentElement;
-    save = save.filter((item) => item.mainId !== parseInt(targetDiv.id));
+    save = save.filter((item) => item.mainId !== targetDiv.id);
     localStorage.setItem("saved", JSON.stringify(save));
     targetDiv.remove();
 }
@@ -149,6 +151,7 @@ function SaveBtnReflesh(){
     const newBtn = document.createElement("button");
     newBtn.id="calcul-btn";
     newBtn.className="cost-save-btn";
+    newBtn.innerText = "✔";
     newBtnArea.appendChild(newBtn);
     area.appendChild(newBtnArea);
     newBtn.addEventListener("click", calcul);

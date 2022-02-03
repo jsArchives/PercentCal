@@ -80,6 +80,7 @@ main{
     padding: 0;
     width: 30px;
     height: 30px;
+    
 }
 #cost-area{
     margin: 20px 0 0 0;
@@ -94,6 +95,8 @@ main{
     float: right;
     width: 20px;
     height: 20px;
+    background-color: #fff;
+    border : 0;
 }
 .cost-input-area{
     position: relative;
@@ -102,6 +105,8 @@ main{
     float: right;
     width: 20px;
     height: 20px;
+    background-color: #fff;
+    border : 0;
 }
 .cost-form{
     display: inline-block;
@@ -117,6 +122,8 @@ main{
     float: right;
     width: 20px;
     height: 20px;
+    background-color: #fff;
+    border : 0;
 }
 #cost-btn-area{
     height: 30px;
@@ -126,6 +133,8 @@ main{
     vertical-align: top;
     width: 30px;
     height: 30px;
+    background-color: #fff;
+    border: 0;
 }
 #result-area{
     float: right;
