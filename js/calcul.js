@@ -75,8 +75,15 @@ function showValue(value){
     trialArea.appendChild(trialSpan);
     trialArea.appendChild(trialValue);
 
+    const descriptionArea = document.createElement("div");
+    const description = document.createElement("span");
+    description.innerText = `100명중 ${adjustInput.value}명이 ${Math.ceil(value)}회 안에 아이템을 뽑습니다.`
+    descriptionArea.appendChild(description);
+
     adjustResultArea.appendChild(costArea);
     adjustResultArea.appendChild(trialArea);
+    adjustResultArea.appendChild(descriptionArea);
+
     area.appendChild(adjustResultArea);
 }
 function changePercent(event){
