@@ -1,0 +1,70 @@
+/* defaultLayout */
+.center{
+    width : 1130px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* navLayout */
+#nav-area{
+    height: 40px;
+}
+#title-area{
+    display: inline-block; 
+}
+/* mainLatout */
+main{
+    border-top: 1px solid #000;
+}
+#main-center{
+    padding: 0 30px 30px 30px;
+}
+#left-area{
+    display: inline-block;
+    vertical-align: top;
+    width: 550px;
+}
+#right-area{
+    display: inline-block;
+    vertical-align: top;
+    width: 550px;
+}
+#percent-area{
+    margin: 20px 0 0 0;
+    width: 450px;
+    border: 1px solid #000;
+}
+#percent-inner-area{
+    margin: 20px;
+    width: 410px;
+}
+#percent-input-area{
+    position: relative;
+}
+#cost-inner-area{
+    margin: 20px;
+    width: 410px;
+}
+.cost-input-area{
+    position: relative;
+}
+#cost-btn-area{
+    height: 30px;
+}
+#result-area{
+    float: right;
+    border: 1px solid #000;
+    margin : 20px 0 0 0;
+    width: 500px;
+}
+#result-inner-area{
+    margin: 20px;
+}
+#result-adjust-area{
+    margin: 10px 0 10px 0;
+    border: 1px solid #000;
+}
+/* footerLayout */
+#footer-area{
+    height: 40px;
+}
